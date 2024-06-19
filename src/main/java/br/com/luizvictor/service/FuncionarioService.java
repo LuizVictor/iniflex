@@ -3,6 +3,7 @@ package br.com.luizvictor.service;
 import br.com.luizvictor.entities.Funcionario;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
@@ -93,11 +94,22 @@ public class FuncionarioService {
                 .map(Funcionario::getSalario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-
         System.out.println("|--------------------|");
         System.out.println("| Total dos salários |");
         System.out.println("|--------------------|");
         System.out.println("Total: " + String.format("%,.2f", totalSalarios));
         System.out.println();
+    }
+
+    public void exibirQuantidadeSalarioMinimo() {
+        BigDecimal salarioMinimo = new BigDecimal("1212.00");
+
+        System.out.println("|-----------------------------------------------------------|");
+        System.out.println("| Quantidade de salários mínimos que cada funcionário ganha |");
+        System.out.println("|-----------------------------------------------------------|");
+        for (Funcionario funcionario : funcionarios) {
+            BigDecimal salariosMinimos = funcionario.getSalario().divide(salarioMinimo, RoundingMode.HALF_DOWN);
+            System.out.println(funcionario.getNome() + " ganha " + String.format("%,.2f", salariosMinimos));
+        }
     }
 }

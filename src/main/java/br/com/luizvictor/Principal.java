@@ -55,6 +55,8 @@ public class Principal {
         exibir(service.exibirPorOrdemAlfabetica());
 
         service.totalSalario();
+
+        service.exibirQuantidadeSalarioMinimo();
     }
 
     public static void exibir(List<Funcionario> funcionarios) {
