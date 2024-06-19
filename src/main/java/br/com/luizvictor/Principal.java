@@ -31,6 +31,12 @@ public class Principal {
         System.out.println("| Listando funcionários |");
         System.out.println("|-----------------------|");
         exibir(service.listar());
+
+        service.ajustarSalario();
+        System.out.println("|---------------------------|");
+        System.out.println("| Salário com ajuste de 10% |");
+        System.out.println("|---------------------------|");
+        exibir(service.listar());
     }
 
     public static void exibir(List<Funcionario> funcionarios) {

@@ -2,6 +2,7 @@ package br.com.luizvictor.service;
 
 import br.com.luizvictor.entities.Funcionario;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,5 +25,12 @@ public class FuncionarioService {
 
     public void remover(Funcionario funcionario) {
         funcionarios.remove(funcionario);
+    }
+
+    public void ajustarSalario() {
+        funcionarios.forEach(funcionario -> {
+            BigDecimal ajuste = funcionario.getSalario().multiply(BigDecimal.valueOf(1.1));
+            funcionario.ajustarSalario(ajuste);
+        });
     }
 }
