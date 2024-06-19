@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Principal {
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public static void main(String[] args) {
         Funcionario maria = new Funcionario("Maria", LocalDate.of(2000, 10, 18), BigDecimal.valueOf(2009.44), "Operador");
         Funcionario joao = new Funcionario("João", LocalDate.of(1990, 5, 12), BigDecimal.valueOf(2284.38), "Operador");
@@ -37,10 +39,11 @@ public class Principal {
         System.out.println("| Salário com ajuste de 10% |");
         System.out.println("|---------------------------|");
         exibir(service.listar());
+
+        service.exibirAgrupadosPorFuncao(formatter);
     }
 
     public static void exibir(List<Funcionario> funcionarios) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         for (Funcionario funcionario : funcionarios) {
             System.out.println("Nome: " + funcionario.getNome());
             System.out.println("Data de Nascimento: " + funcionario.getDataNascimento().format(formatter));
