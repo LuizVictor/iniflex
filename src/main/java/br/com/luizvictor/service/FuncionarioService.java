@@ -1,7 +1,6 @@
 package br.com.luizvictor.service;
 
 import br.com.luizvictor.entities.Funcionario;
-import br.com.luizvictor.entities.Pessoa;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -65,8 +64,8 @@ public class FuncionarioService {
 
     public List<Funcionario> aniversariantes10e12() {
         return funcionarios.stream().filter(funcionario -> {
-           Month mesAniversario = funcionario.getDataNascimento().getMonth();
-           return mesAniversario == Month.OCTOBER || mesAniversario == Month.DECEMBER;
+            Month mesAniversario = funcionario.getDataNascimento().getMonth();
+            return mesAniversario == Month.OCTOBER || mesAniversario == Month.DECEMBER;
         }).toList();
     }
 
@@ -83,4 +82,9 @@ public class FuncionarioService {
             System.out.println("Nome: " + maisVelho.getNome() + ", Idade: " + idade.getYears() + " anos");
             System.out.println();
         }
-    }}
+    }
+
+    public List<Funcionario> exibirPorOrdemAlfabetica() {
+        return funcionarios.stream().sorted(Comparator.comparing(Funcionario::getNome)).toList();
+    }
+}

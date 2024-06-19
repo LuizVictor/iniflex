@@ -48,6 +48,11 @@ public class Principal {
         exibir(service.aniversariantes10e12());
 
         service.maiorIdade();
+
+        System.out.println("|-----------------------------------|");
+        System.out.println("| Funcionários por ordem alfabética |");
+        System.out.println("|-----------------------------------|");
+        exibir(service.exibirPorOrdemAlfabetica());
     }
 
     public static void exibir(List<Funcionario> funcionarios) {
