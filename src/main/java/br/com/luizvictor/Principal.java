@@ -53,6 +53,8 @@ public class Principal {
         System.out.println("| Funcionários por ordem alfabética |");
         System.out.println("|-----------------------------------|");
         exibir(service.exibirPorOrdemAlfabetica());
+
+        service.totalSalario();
     }
 
     public static void exibir(List<Funcionario> funcionarios) {
@@ -64,4 +66,6 @@ public class Principal {
             System.out.println();
         }
     }
+    
+
 }

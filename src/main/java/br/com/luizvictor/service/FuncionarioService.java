@@ -87,4 +87,17 @@ public class FuncionarioService {
     public List<Funcionario> exibirPorOrdemAlfabetica() {
         return funcionarios.stream().sorted(Comparator.comparing(Funcionario::getNome)).toList();
     }
+
+    public void totalSalario() {
+        BigDecimal totalSalarios = funcionarios.stream()
+                .map(Funcionario::getSalario)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+
+        System.out.println("|--------------------|");
+        System.out.println("| Total dos salários |");
+        System.out.println("|--------------------|");
+        System.out.println("Total: " + String.format("%,.2f", totalSalarios));
+        System.out.println();
+    }
 }
