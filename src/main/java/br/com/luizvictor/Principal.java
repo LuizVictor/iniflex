@@ -41,6 +41,11 @@ public class Principal {
         exibir(service.listar());
 
         service.exibirAgrupadosPorFuncao(formatter);
+
+        System.out.println("|---------------------------------------------------|");
+        System.out.println("| Funcionários que fazem aniversário no mês 10 e 12 |");
+        System.out.println("|---------------------------------------------------|");
+        exibir(service.aniversariantes10e12());
     }
 
     public static void exibir(List<Funcionario> funcionarios) {

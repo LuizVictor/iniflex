@@ -3,6 +3,7 @@ package br.com.luizvictor.service;
 import br.com.luizvictor.entities.Funcionario;
 
 import java.math.BigDecimal;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,5 +57,12 @@ public class FuncionarioService {
                 System.out.println();
             }
         }
+    }
+
+    public List<Funcionario> aniversariantes10e12() {
+        return funcionarios.stream().filter(funcionario -> {
+           Month mesAniversario = funcionario.getDataNascimento().getMonth();
+           return mesAniversario == Month.OCTOBER || mesAniversario == Month.DECEMBER;
+        }).toList();
     }
 }
