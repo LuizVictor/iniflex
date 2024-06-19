@@ -21,4 +21,8 @@ public class FuncionarioService {
     public List<Funcionario> listar() {
         return funcionarios;
     }
+
+    public void remover(Funcionario funcionario) {
+        funcionarios.remove(funcionario);
+    }
 }

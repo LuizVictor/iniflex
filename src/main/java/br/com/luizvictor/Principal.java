@@ -12,7 +12,7 @@ import java.util.List;
 public class Principal {
     public static void main(String[] args) {
         Funcionario maria = new Funcionario("Maria", LocalDate.of(2000, 10, 18), BigDecimal.valueOf(2009.44), "Operador");
-        Funcionario joao = new Funcionario("Joao", LocalDate.of(1990, 5, 12), BigDecimal.valueOf(2284.38), "Operador");
+        Funcionario joao = new Funcionario("João", LocalDate.of(1990, 5, 12), BigDecimal.valueOf(2284.38), "Operador");
         Funcionario caio = new Funcionario("Caio", LocalDate.of(1961, 5, 2), BigDecimal.valueOf(9836.14), "Coordenador");
         Funcionario miguel = new Funcionario("Miguel", LocalDate.of(1988, 10, 14), BigDecimal.valueOf(19119.88), "Diretor");
         Funcionario alice = new Funcionario("Alice", LocalDate.of(1995, 1, 5), BigDecimal.valueOf(2234.68), "Recepcionista");
@@ -24,6 +24,8 @@ public class Principal {
 
         FuncionarioService service = new FuncionarioService();
         service.adicionar(Arrays.asList(maria, joao, caio, miguel, alice, heitor, arthur, laura, heloisa, helena));
+
+        service.remover(joao);
 
         System.out.println("|-----------------------|");
         System.out.println("| Listando funcionários |");
