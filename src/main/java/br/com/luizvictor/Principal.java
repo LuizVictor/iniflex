@@ -46,6 +46,8 @@ public class Principal {
         System.out.println("| Funcionários que fazem aniversário no mês 10 e 12 |");
         System.out.println("|---------------------------------------------------|");
         exibir(service.aniversariantes10e12());
+
+        service.maiorIdade();
     }
 
     public static void exibir(List<Funcionario> funcionarios) {

@@ -1,11 +1,15 @@
 package br.com.luizvictor.service;
 
 import br.com.luizvictor.entities.Funcionario;
+import br.com.luizvictor.entities.Pessoa;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.Month;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -65,4 +69,18 @@ public class FuncionarioService {
            return mesAniversario == Month.OCTOBER || mesAniversario == Month.DECEMBER;
         }).toList();
     }
-}
+
+    public void maiorIdade() {
+        Funcionario maisVelho = funcionarios.stream()
+                .min(Comparator.comparing(Funcionario::getDataNascimento))
+                .orElse(null);
+
+        if (maisVelho != null) {
+            Period idade = Period.between(maisVelho.getDataNascimento(), LocalDate.now());
+            System.out.println("|-------------------------------|");
+            System.out.println("| Funcionário com a maior idade |");
+            System.out.println("|-------------------------------|");
+            System.out.println("Nome: " + maisVelho.getNome() + ", Idade: " + idade.getYears() + " anos");
+            System.out.println();
+        }
+    }}
